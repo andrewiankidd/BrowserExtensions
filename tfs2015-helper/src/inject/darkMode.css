@@ -1,0 +1,544 @@
+
+/* 
+    all of this CSS is from TFS+ by eakosin
+        https://chrome.google.com/webstore/detail/tfs%2B/mkmgiophehinjmcmkdcdpiodoleppcoc/related
+
+*/
+.header-post11 #header-row {
+    background: #3E3E42 !important
+}
+.header-post11 .header-search {
+    background-color: #333337 !important;
+    border: 1px solid #3F3F46 !important
+}
+.header-post11 .header-search>.search-text.watermark {
+    background-color: transparent !important;
+    color: #999999 !important
+}
+.header-post11 .header-search>.search-text {
+    background-color: transparent !important;
+    color: #f1f1f1 !important
+}
+.leftPane,
+.rightPane,
+.rightPane>.work-item-form {
+    border-width: 0px !important
+}
+.toolbar {
+    color: #f1f1f1 !important;
+    background-color: #1E1E1E !important;
+    border-width: 0px !important
+}
+.menu-item.hover {
+    background-color: #2d2d30 !important;
+    border-bottom-color: #2d2d33 !important;
+    border-left-color: #2d2d33 !important;
+    border-right-color: #2d2d33 !important;
+    border-top-color: #2d2d33 !important
+}
+.menu-item {
+    color: #f1f1f1
+}
+.menu-item>.menu.sub-menu {
+    -webkit-box-shadow: #000 0px 0px 0px 0px !important
+}
+.menu-item>.menu.sub-menu>.menu-item.focus {
+    background-color: #1E1E1E !important;
+    border-bottom-color: #1E1E21 !important;
+    border-left-color: #1E1E21 !important;
+    border-right-color: #1E1E21 !important;
+    border-top-color: #1E1E21 !important
+}
+.tabs>.headers,
+.ui-tabs-nav,
+.query-type {
+    color: #f1f1f1 !important;
+    background-color: #2d2d30 !important;
+    border-width: 0px !important
+}
+.content-section,
+body {
+    color: #C8C8C8 !important;
+    background-color: #1E1E1E !important
+}
+.grid-row.grid-row-current,
+.menu-item.toggle-on,
+.node.selected>.node-link>.node-content,
+.node.context-menu-active>.node-link>.node-content,
+.buildvnext-node.selected > div.node-content,
+.buildvnext-node.hover > div.node-content {
+    background-color: #3F3F46 !important;
+    border-bottom-color: #3F3F46 !important;
+    border-left-color: #3F3F46 !important;
+    border-right-color: #3F3F46 !important;
+    border-top-color: #3F3F46 !important
+}
+.grid-row.grid-row-hover,
+.node.focus>.node-link>.node-content,
+.tree-view.bowtie-tree > ul.tree-children li.selected > div.node-context-menu-container {
+    background-color: #333337 !important;
+    border-bottom-color: #333337 !important;
+    border-left-color: #333337 !important;
+    border-right-color: #333337 !important;
+    border-top-color: #333337 !important
+}
+.grid-gutter-row {
+    background-color: #222224 !important;
+    border-bottom-color: #2d2d33 !important;
+    border-left-color: #222224 !important;
+    border-right-color: #222224 !important;
+    border-top-color: #222224 !important
+}
+.combo>.wrap>input {
+    color: #f1f1f1 !important;
+    background-color: #222224 !important;
+    border-bottom-color: #222224 !important;
+    border-left-color: #222224 !important;
+    border-right-color: #222224 !important;
+    border-top-color: #222224 !important
+}
+.combo-drop-popup {
+    background-color: #1E1E1E !important;
+    border-bottom-color: #333337 !important;
+    border-left-color: #333337 !important;
+    border-right-color: #333337 !important;
+    border-top-color: #333337 !important
+}
+.handleBar {
+    color: #2d2d30 !important;
+    background-color: #2d2d30 !important
+}
+.selected>a,
+legend,
+.node-link:visited,
+.header-post11 .hubs li a:hover,
+.header-post11 .hubs li.selected a,
+.header-post11 .hub-groups-section li.selected a,
+.header-post11 .hub-groups-section li a:hover {
+    color: #007acc !important
+}
+.tag-container {
+    border-bottom-color: #2d2d33 !important;
+    border-left-color: #2d2d33 !important;
+    border-right-color: #2d2d33 !important;
+    border-top-color: #2d2d33 !important
+}
+.tag-container .tag-delete,
+.query-editor,
+.query-charts-view,
+.chart-hosts-list {
+    background-color: #1E1E1E !important
+}
+.ui-dialog {
+    -webkit-box-shadow: #000 0px 0px 30px 0px !important;
+    color: #f1f1f1 !important;
+    background-color: #1E1E1E !important;
+    border-bottom-color: #2d2d33 !important;
+    border-left-color: #2d2d33 !important;
+    border-right-color: #2d2d33 !important;
+    border-top-color: #2d2d33 !important
+}
+.ui-dialog-titlebar,
+.tag-box,
+.splitter,
+.hub-pivot-content {
+    color: #f1f1f1 !important;
+    background-color: #1E1E1E !important
+}
+.add-panel,
+.state {
+    background-color: #3F3F46 !important
+}
+.ui-dialog-buttonpane {
+    color: #f1f1f1 !important;
+    background-color: #1E1E1E !important;
+    border: 0px !important
+}
+select,
+.workitemcontrol .mru-identity-picker.drop,
+.workitemcontrol .mru-identity-picker.drop .identity-picker-list-view,
+.identity-picker-list-view > ul.items > li.selected,
+.identity-picker-list-view .search,
+.identity-picker-list-view .no-result,
+input,
+.combo {
+    color: #f1f1f1 !important;
+    background-color: #222224 !important;
+    border-bottom-color: #333337 !important;
+    border-left-color: #333337 !important;
+    border-right-color: #333337 !important;
+    border-top-color: #333337 !important
+}
+button,
+.ui-button {
+    color: #f1f1f1 !important;
+    background-color: #2d2d33 !important;
+    border-bottom-color: #3E3E42 !important;
+    border-left-color: #3E3E42 !important;
+    border-right-color: #3E3E42 !important;
+    border-top-color: #3E3E42 !important
+}
+.details-host .field-table .detail-list tr td,
+.modal-dialog,
+.pivot-filter-item.selected,
+.identity-picker-list-view > ul.items > li.selected.hover,
+.identity-picker-list-view ul.items .hover,
+.control {
+    color: #f1f1f1 !important;
+    background-color: #1E1E1E !important;
+    border-bottom-color: #2d2d33 !important;
+    border-left-color: #2d2d33 !important;
+    border-right-color: #2d2d33 !important;
+    border-top-color: #2d2d33 !important
+}
+.richeditor-editarea iframe {
+    border: 1px solid #3F3F46 !important
+}
+::-webkit-scrollbar-thumb {
+    border: 4px !important;
+    border-color: 3E3E42 !important;
+    background-color: #686868 !important
+}
+::-webkit-scrollbar-button,
+.node-link {
+    color: #999999 !important
+}
+::-webkit-scrollbar-button:horizontal:increment {
+    background-image: url(../images/right.png)
+}
+::-webkit-scrollbar-button:horizontal:decrement {
+    background-image: url(../images/left.png)
+}
+::-webkit-scrollbar-button:vertical:increment {
+    background-image: url(../images/down.png)
+}
+::-webkit-scrollbar-button:vertical:decrement {
+    background-image: url(../images/up.png)
+}
+::-webkit-scrollbar-resize {
+    color: #2D2D30 !important
+}
+.ui-widget-overlay {
+    background-color: #000 !important;
+    color: #000 !important
+}
+.workitem-dialog.ui-dialog .control-busy-overlay,
+.control-busy-overlay {
+    background: #000 !important
+}
+.info-message,
+.query-result-grid-info.invalid {
+    background-color: #2d2d30 !important;
+    border: 0px !important
+}
+.chart-template-list,
+.ui-button.ui-state-hover {
+    color: #f1f1f1 !important;
+    background-color: #3E3E42 !important;
+    border-bottom-color: #3E3E42 !important;
+    border-left-color: #3E3E42 !important;
+    border-right-color: #3E3E42 !important;
+    border-top-color: #3E3E42 !important
+}
+a.title {
+    color: #007ACC !important
+}
+.search-input-wrapper,
+.source-path,
+.testmanagement-plans-combo {
+    color: #f1f1f1 !important;
+    background-color: #222224 !important;
+    border: 1px solid #3F3F46 !important
+}
+.repository-node {
+    border: 0px !important
+}
+.ui-autocomplete,
+.dropdown-input-list-container {
+    -webkit-box-shadow: #000 0px 0px 0px 0px !important;
+    background-color: #1E1E1E !important;
+    border-bottom-color: #333337 !important;
+    border-left-color: #333337 !important;
+    border-right-color: #333337 !important;
+    border-top-color: #333337 !important
+}
+.dropdown-input-listitem {
+    border: 1px solid #1E1E1E !important;
+    background-color: #1E1E1E !important
+}
+.dropdown-input-listitem.highlighted,
+.virtualizing-list-view>.items>li.selected {
+    border: 1px solid #333337 !important;
+    background-color: #333337 !important
+}
+.top-level-menu-v2.user-menu.header-item>.menu-item>.menu.sub-menu {
+    border: 1px solid #333337 !important
+}
+.grid-header-column {
+    background-color: #222224 !important;
+    border-left: #333337 1px solid !important;
+    border-top: #333337 1px solid !important;
+    border-bottom: #333337 1px solid !important;
+    border-right: transparent 0px solid !important;
+    vertical-align: middle !important
+}
+.grid-header-column>.title {
+    top: 0px !important
+}
+.grid-header-column>.title.parameter-name-invalid {
+    background-color: #3f3a25 !important
+}
+.grid.editable-grid .grid-row {
+    color: #f1f1f1 !important;
+    background-color: #1e1e1e !important;
+    border-left: 1px transparent !important;
+    border-right: 0px transparent !important;
+    border-top: 0px transparent !important;
+    border-bottom: 0px transparent !important
+}
+.grid.editable-grid .grid-row.grid-row-hover {
+    background-color: #222224 !important
+}
+.grid.editable-grid .grid-row>.grid-cell {
+    border-bottom: 1px #333337 solid !important;
+    border-right: 1px #333337 solid !important;
+    border-left: 1px #333337 !important;
+    border-top: 0px #000 !important
+}
+.grid.editable-grid .grid-row>.grid-cell.grid-cell-selected {
+    background-color: #42424a !important
+}
+.agile-board .header-container>.cell {
+    border-right-color: #333337 !important;
+    border-bottom-color: #333337 !important
+}
+.agile-board .content-container>.cell {
+    border-right-color: #333337 !important
+}
+.boardcolumn-contents-state-label {
+    color: #000 !important
+}
+thead>.taskboard-row>.taskboard-cell {
+    border-left-color: #1e1e1e !important;
+    border-bottom-color: #1e1e1e !important
+}
+.taskboard .board-tile,
+.taskboard .witTitle.ellipsis,
+.taskboard .onTileEditTextDiv,
+.taskboard .taskboard-cell .add-new-item,
+.taskboard .taskboard-cell .tbTile .tbTileContent,
+.taskboard .taskboard-cell .tbTile .tbTileContent .clickable-title,
+.taskboard .taskboard-cell .tbTile .tbTileContent .witExtra .witRemainingWork,
+.agile-board .board-tile,
+.agile-board .board-tile .title {
+    color: #1e1e1e !important
+}
+.taskboard .taskboard-cell .tbTile .tbTileContent .tag-box {
+    color: #1e1e1e !important;
+    background-color: #d7e6f3 !important
+}
+.capacity-pane-container,
+.taskboard .taskboard-cell.ui-droppable {
+    border-left-color: #333337 !important
+}
+.team-capacity-control,
+.activity-grouped-progress-control,
+.taskboard .taskboard-cell,
+.taskboard .taskboard-content-row .taskboard-expander {
+    border-bottom-color: #333337 !important
+}
+.tfs-collapsible-header.focus {
+    background-color: #3E3E42 !important;
+    border-bottom-color: #3E3E42 !important;
+    border-left-color: #3E3E42 !important;
+    border-right-color: #3E3E42 !important;
+    border-top-color: #3E3E42 !important
+}
+.diff-lines {
+    background-color: transparent !important;
+    border-color: #3E3E42 !important
+}
+.comments-container {
+    background-color: #2d2d30 !important;
+    border: 1px solid #3E3E42 !important
+}
+.file-row.change-type-delete {
+    background-color: #723A3A !important
+}
+.file-row.change-type-add {
+    background-color: #3C703C !important
+}
+.ellipsis-line-content {
+    border-color: #3E3E42 !important
+}
+.code-line.deleted-content {
+    color: #fe8080 !important;
+    background-color: transparent !important
+}
+.code-line.added-content {
+    color: #80f080 !important;
+    background-color: transparent !important
+}
+.menu-bar,
+.grid.editable-grid .grid-row>.grid-cell.rich-text-cell.grid-id-cell,
+.tfs-collapsible-content .message,
+.group-header,
+.richeditor-navigator {
+    background-color: transparent !important
+}
+.edit-area {
+    color: #f1f1f1 !important;
+    background-color: #1e1e1e !important;
+    border: 1px solid #3E3E42 !important
+}
+.container>.detail-list,
+.diff-contents-container {
+    background-color: #1e1e1e !important;
+    border-color: #3E3E42 !important
+}
+#dashboard-l2-menu-bar,
+.code-line.added-content.highlighted-row,
+.code-line.deleted-content.highlighted-row,
+.code-line.highlighted-row,
+.ln-o,
+.ln-m,
+.diff-lines .discussion-filler,
+.tfs-collapsible-header,
+.grid.editable-grid .grid-row.grid-row-current,
+.tags-autocomplete-menu .ui-menu-item a.ui-state-hover,
+.tags-autocomplete-menu .ui-menu-item a.ui-state-active,
+.tags-autocomplete-menu .ui-menu-item a.ui-state-focus,
+.chart-template-list .xnode.selected,
+.error-message,
+.menu,
+.message-block,
+.header-post11 #navWrapper {
+    background-color: #2d2d30 !important
+}
+.team-dashboard-view .widgethost,
+.team-dashboard-view .widgethost .widget-notification.configure-widget .action-required-link {
+    color: #f1f1f1 !important;
+    background-color: #333337 !important;
+    box-shadow: 2px 2px 3px #101010 !important
+}
+.team-dashboard-view .tcmchart-container .chart-container.chart-host.chartpin,
+.team-dashboard-view .witchart-container .chart-container.chart-host.chartpin {
+    background-color: #333337 !important
+}
+.visual-progress-container {
+    background-color: #333337 !important;
+    border: 1px solid #3F3F46 !important;
+    color: #f1f1f1 !important
+}
+.visual-progress-container>.visual-progress-total {
+    background-color: #686868 !important
+}
+.chat-rooms-view span,
+.chat-rooms-view .member-name,
+.date-cell.selected>.date,
+.buildvnext-tree .node-section label,
+.team-dashboard-view .chart-host > .chart-host-header > .chart-host-title,
+.team-dashboard-view .row-labels > .row-label,
+.team-dashboard-view .pivot-table > table > tr > td.total-key > .series-label,
+.team-dashboard-view .pivot-table > table > tr > td.series-key > .series-label,
+.team-dashboard-view .pivot-table > table > tr > td.key-head > .series-label,
+.team-dashboard-view .pivot-table td.head-total > .diagonal-text,
+.team-dashboard-view .pivot-table tr > td.series-total,
+.team-dashboard-view .pivot-table tr > td.grand-total,
+.team-dashboard-view .pivot-table tr > td.group-column.group-total,
+.chart-legend-cell > .legend-label,
+.layout-container .column-label .column-label-text,
+.team-dashboard-view .action-required-link .title-container,
+.team-dashboard-view .widget-notification.configure-widget .action-required-link .widget-message-text,
+.progress-text,
+.sprint-summary-tile-sprint-progress-text,
+.taskboard .tbPivotItem,
+.taskboard .witState,
+.taskboard .witTitle,
+.taskboard .witRemainingWork,
+.agile-board .header-container .member-header-content,
+.agile-board .header-container .limit,
+.workitem-info-bar .info-text,
+.mapping-pane-title,
+.reference-testcases-pane-title,
+.ui-widget-content .message-form-container .resolved-member-name,
+.header,
+.group-info-input,
+.dialog label,
+.panel-region label,
+.ui-dialog-title,
+.pivot-filter li.selected .text,
+a,
+font,
+.grid-row,
+.ui-tabs-panel,
+.query-title,
+.query-status,
+.node.folder>.node-link>.node-content,
+.node-link:link,
+.title,
+.hub-title,
+.header-post11 .hubs li a,
+.header-post11 .hub-groups-section li a {
+    color: #f1f1f1 !important
+}
+.chat-rooms-view .message-content {
+    color: #f1f1f1 !important;
+    background-color: #1e1e1e !important;
+    border: transparent !important
+}
+.chat-rooms-view .message-text,
+.team-dashboard-view,
+.hub-view.dashboard-landing .hub-content {
+    color: #f1f1f1 !important;
+    background-color: #1e1e1e !important
+}
+.date-panel .quick-nav,
+.chat-error-section,
+#taskboard-table-body,
+.taskboard .taskboard-content-row .taskboard-parent,
+.taskboard .taskboard-content-row .taskboard-expander,
+.more-comment-link,
+.diff-message,
+.tfs-collapsible-content .warning,
+.warning-message,
+.combo>.drop.hover {
+    background-color: #1e1e1e !important
+}
+.build-detail-view .header {
+    background-color: #2d2d30 !important;
+    border-bottom: 1px solid #3F3F46 !important;
+    box-shadow: 0 1px 2px rgba(160, 160, 160, .2)
+}
+.build-detail-view .content .summary-header {
+    color: #007ACC !important;
+    border-bottom: 1px solid #2d2d33 !important
+}
+.hub-progress,
+.ui-dialog .ui-dialog-titlebar-progress-element {
+    background-image: url('../images/progress.gif') !important
+}
+.big-status-progress,
+.home-view .responsive-grid .account-home-view-new-project-panel .project-create-progress {
+    background: url('../images/bigprogress.gif') no-repeat -0 -0 !important
+}
+.status-progress {
+    background: url('../images/spinner.gif') !important
+}
+.saving-row-gutter {
+    background: url('../images/spinner.gif') no-repeat -0 -0 !important
+}
+.comment.selected-thread,
+.ln-o.highlighted-row,
+.ln-m.highlighted-row,
+::-webkit-scrollbar {
+    background-color: #3E3E42 !important
+}
+
+.log-viewer-data{
+	background-color: white;
+}
+
+.download-log-viewer ol li div pre {
+    color: white;
+}

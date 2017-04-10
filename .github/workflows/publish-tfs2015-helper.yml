@@ -1,0 +1,30 @@
+name: Build and Deploy (tfs2015-helper)
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'tfs2015-helper/**'
+      - '.github/workflows/publish-tfs2015-helper.yml'
+  pull_request:
+    branches: [master]
+    paths:
+      - 'tfs2015-helper/**'
+      - '.github/workflows/publish-tfs2015-helper.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    uses: ./.github/workflows/_publish-extension.yml
+    with:
+      name: tfs2015-helper
+    secrets:
+      CHROME_PRODUCT_ID: ${{ secrets.CHROME_PRODUCT_ID_TFS2015_HELPER }}
+      CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+      CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+      CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+      FIREFOX_API_KEY: ${{ secrets.FIREFOX_API_KEY }}
+      FIREFOX_API_SECRET: ${{ secrets.FIREFOX_API_SECRET }}

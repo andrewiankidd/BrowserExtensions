@@ -1,0 +1,167 @@
+name: _publish-extension
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: Extension folder name (e.g. argocd-helper)
+        required: true
+        type: string
+    secrets:
+      # Edge secrets disabled — see publish_edge job below.
+      # EDGE_PRODUCT_ID:
+      #   required: true
+      # EDGE_API_KEY:
+      #   required: true
+      # EDGE_CLIENT_ID:
+      #   required: true
+      CHROME_PRODUCT_ID:
+        required: true
+      CHROME_CLIENT_ID:
+        required: true
+      CHROME_CLIENT_SECRET:
+        required: true
+      CHROME_REFRESH_TOKEN:
+        required: true
+      FIREFOX_API_KEY:
+        required: true
+      FIREFOX_API_SECRET:
+        required: true
+
+jobs:
+  build:
+    name: Build extension zip
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.meta.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compute release tag
+        id: meta
+        run: echo "tag=${{ inputs.name }}-$(date -u +'%Y-%m-%d-%H-%M-%S')" >> "$GITHUB_OUTPUT"
+
+      # Chrome Web Store rejects re-uploads of the same version. Keep the first
+      # three segments of whatever is in manifest.json (semantic prefix the
+      # author controls) and replace the fourth with the workflow run number,
+      # which is monotonically increasing per workflow forever.
+      - name: Stamp manifest version with run number
+        run: |
+          manifest="${{ inputs.name }}/src/manifest.json"
+          base=$(jq -r '.version' "$manifest" | cut -d. -f1-3)
+          new="${base}.${{ github.run_number }}"
+          jq --arg v "$new" '.version = $v' "$manifest" > "$manifest.tmp" && mv "$manifest.tmp" "$manifest"
+          echo "$manifest → $new"
+
+      - name: Zip extension source
+        uses: vimtor/action-zip@v1.2
+        with:
+          files: ${{ inputs.name }}/src/
+          recursive: true
+          dest: src_archive.zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.name }}
+          path: src_archive.zip
+
+  release:
+    name: Create GitHub release
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.name }}
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.build.outputs.tag }}
+          name: ${{ needs.build.outputs.tag }}
+          files: src_archive.zip
+
+  # ---------------------------------------------------------------------------
+  # Edge publish disabled — Microsoft broke Partner Center and locked publishers
+  # out of their own existing extension listings. The Edge Add-ons workspace
+  # silently disappeared from the dashboard with no migration path back. Open
+  # since at least early May 2026 with no fix, despite multiple publishers
+  # affected and HAR/PSR files already provided to MS support:
+  #
+  #   https://github.com/microsoft/MicrosoftEdge-Extensions/issues/527
+  #
+  # The Edge add-on ecosystem has now been migrated between three different
+  # publisher portals in five years and each migration strands a chunk of
+  # existing publishers. Until Microsoft can keep their own developer tooling
+  # working for longer than the time between rewrites, Edge auto-publish is
+  # off. Chrome publish continues to work and is the supported path.
+  # ---------------------------------------------------------------------------
+  # publish_edge:
+  #   name: Publish to Edge Add-Ons Marketplace
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+  #   steps:
+  #     - uses: actions/download-artifact@v4
+  #       with:
+  #         name: ${{ inputs.name }}
+  #
+  #     - uses: wdzeng/edge-addon@v2
+  #       with:
+  #         product-id: ${{ secrets.EDGE_PRODUCT_ID }}
+  #         zip-path: src_archive.zip
+  #         api-key: ${{ secrets.EDGE_API_KEY }}
+  #         client-id: ${{ secrets.EDGE_CLIENT_ID }}
+
+  publish_chrome:
+    name: Publish to Chrome Web Store
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.name }}
+
+      - uses: trmcnvn/chrome-addon@v2
+        with:
+          zip: src_archive.zip
+          extension: ${{ secrets.CHROME_PRODUCT_ID }}
+          client-id: ${{ secrets.CHROME_CLIENT_ID }}
+          client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
+          refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
+
+  publish_firefox:
+    name: Publish to Firefox Add-ons (AMO)
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.name }}
+
+      # The GUID lives in browser_specific_settings.gecko.id in manifest.json
+      # (single source of truth — same value Firefox uses to identify the
+      # extension internally and what AMO uses to update the listing). If
+      # the field is missing, skip Firefox publish gracefully.
+      - name: Read addon GUID from manifest
+        id: ff
+        run: |
+          guid=$(jq -r '.browser_specific_settings.gecko.id // empty' "${{ inputs.name }}/src/manifest.json")
+          if [ -z "$guid" ]; then
+            echo "No browser_specific_settings.gecko.id in manifest — skipping Firefox publish."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "guid=$guid" >> "$GITHUB_OUTPUT"
+          fi
+
+      - if: steps.ff.outputs.skip != 'true'
+        uses: wdzeng/firefox-addon@v1
+        with:
+          addon-guid: ${{ steps.ff.outputs.guid }}
+          xpi-path: src_archive.zip
+          jwt-issuer: ${{ secrets.FIREFOX_API_KEY }}
+          jwt-secret: ${{ secrets.FIREFOX_API_SECRET }}
