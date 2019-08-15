@@ -1,0 +1,30 @@
+name: Build and Deploy (az-insights-heatmap)
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'az-insights-heatmap/**'
+      - '.github/workflows/publish-az-insights-heatmap.yml'
+  pull_request:
+    branches: [master]
+    paths:
+      - 'az-insights-heatmap/**'
+      - '.github/workflows/publish-az-insights-heatmap.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    uses: ./.github/workflows/_publish-extension.yml
+    with:
+      name: az-insights-heatmap
+    secrets:
+      CHROME_PRODUCT_ID: ${{ secrets.CHROME_PRODUCT_ID_AZ_INSIGHTS_HEATMAP }}
+      CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+      CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+      CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+      FIREFOX_API_KEY: ${{ secrets.FIREFOX_API_KEY }}
+      FIREFOX_API_SECRET: ${{ secrets.FIREFOX_API_SECRET }}
