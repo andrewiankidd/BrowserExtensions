@@ -1,0 +1,72 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>ArgoCD Helper</title>
+		<style>
+			* {
+				transition: all 0.5s;
+			}
+			html {
+				--primary-color: rgb(34,36,54);
+				--secondary-color: rgb(127,133,163);
+				--accent-color: rgb(192,153,255);
+			}
+			body {
+				margin: 0px;
+				width: 320px;
+				padding: 10px;
+				text-align: center;
+				background: var(--primary-color);
+				color: var(--secondary-color);
+				font-family: sans-serif;
+			}
+			h1:hover {
+				color: var(--accent-color);
+			}
+			ul {
+				padding: 0px;
+				text-align: left;
+			}
+			li {
+				list-style: none;
+				padding: 6px 10px;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+			li:hover {
+				color: var(--accent-color);
+				background: rgba(255,255,255,0.03);
+			}
+			label {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				cursor: pointer;
+			}
+			input[type="checkbox"] {
+				accent-color: var(--accent-color);
+				width: 16px;
+				height: 16px;
+			}
+			.hint {
+				font-size: 11px;
+				opacity: 0.7;
+				margin-top: 12px;
+			}
+		</style>
+    </head>
+    <body>
+        <img id="logo" src="/icons/logo48.png" alt="ArgoCD Helper Logo" />
+		<h1>ArgoCD Helper</h1>
+
+		<div id="UIContainer">
+			<ul>
+				<li><label><input type="checkbox" id="enableDeleteAutofill" /> Autofill delete confirmation</label></li>
+				<li><label><input type="checkbox" id="enableCancelAndSync" /> Cancel &amp; Sync button</label></li>
+			</ul>
+			<div class="hint">Reload the ArgoCD tab after toggling.</div>
+		</div>
+
+		<script src="main.js"></script>
+    </body>
+</html>

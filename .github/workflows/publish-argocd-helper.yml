@@ -1,0 +1,34 @@
+name: Build and Deploy (argocd-helper)
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'argocd-helper/**'
+      - '.github/workflows/publish-argocd-helper.yml'
+  pull_request:
+    branches: [master]
+    paths:
+      - 'argocd-helper/**'
+      - '.github/workflows/publish-argocd-helper.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    uses: ./.github/workflows/_publish-extension.yml
+    with:
+      name: argocd-helper
+    secrets:
+      # Edge secrets disabled — see _publish-extension.yml.
+      # EDGE_PRODUCT_ID: ${{ secrets.EDGE_PRODUCT_ID_ARGOCD_HELPER }}
+      # EDGE_API_KEY: ${{ secrets.EDGE_API_KEY }}
+      # EDGE_CLIENT_ID: ${{ secrets.EDGE_CLIENT_ID }}
+      CHROME_PRODUCT_ID: ${{ secrets.CHROME_PRODUCT_ID_ARGOCD_HELPER }}
+      CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+      CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+      CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+      FIREFOX_API_KEY: ${{ secrets.FIREFOX_API_KEY }}
+      FIREFOX_API_SECRET: ${{ secrets.FIREFOX_API_SECRET }}
