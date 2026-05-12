@@ -23,9 +23,3 @@ Browser Extension with quality-of-life tweaks for the legacy TFS 2015 / VSTS UI.
 - **Set Latest Versions** button on release creation — flips every artifact dropdown to its newest version in one click.
 - **Set Manual Deployments** button — flips every automated deployment dropdown to manual.
 - **Dark Mode** toggle in the popup injects a stylesheet to darken the TFS UI.
-
-## Install (unpacked)
-
-1. Open `chrome://extensions` (or `edge://extensions`).
-2. Enable Developer Mode.
-3. Click "Load unpacked" and point at the [`src/`](src) folder.

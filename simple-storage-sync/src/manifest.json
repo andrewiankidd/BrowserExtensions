@@ -3,6 +3,7 @@
     "version": "0.0.0.1",
     "manifest_version": 3,
     "description": "An extension to sync site-specific browser storage between machines",
+    "homepage_url": "https://github.com/andrewiankidd/BrowserExtensions/tree/master/simple-storage-sync",
 	"icons": {
         "16": "icons/logo16.png",
         "32": "icons/logo32.png",

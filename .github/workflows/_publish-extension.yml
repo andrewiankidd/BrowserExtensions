@@ -119,14 +119,30 @@ jobs:
     needs: build
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     steps:
-      - uses: actions/download-artifact@v4
+      # Skip cleanly when CHROME_PRODUCT_ID isn't set yet (extension hasn't
+      # been submitted to Chrome Web Store). Without this guard, an empty id
+      # would trigger junk behaviour in the publish action or even cause it
+      # to create an orphan draft item under the developer's account.
+      - name: Check Chrome credentials
+        id: check
+        env:
+          EXTENSION_ID: ${{ secrets.CHROME_PRODUCT_ID }}
+        run: |
+          if [ -z "$EXTENSION_ID" ]; then
+            echo "::warning::CHROME_PRODUCT_ID is not set for this extension — skipping Chrome publish."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - if: steps.check.outputs.skip != 'true'
+        uses: actions/download-artifact@v4
         with:
           name: ${{ inputs.name }}
 
-      - uses: trmcnvn/chrome-addon@v2
+      - if: steps.check.outputs.skip != 'true'
+        uses: wdzeng/chrome-extension@v1
         with:
-          zip: src_archive.zip
-          extension: ${{ secrets.CHROME_PRODUCT_ID }}
+          extension-id: ${{ secrets.CHROME_PRODUCT_ID }}
+          zip-path: src_archive.zip
           client-id: ${{ secrets.CHROME_CLIENT_ID }}
           client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
           refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
@@ -143,16 +159,25 @@ jobs:
         with:
           name: ${{ inputs.name }}
 
-      # The GUID lives in browser_specific_settings.gecko.id in manifest.json
-      # (single source of truth — same value Firefox uses to identify the
-      # extension internally and what AMO uses to update the listing). If
-      # the field is missing, skip Firefox publish gracefully.
-      - name: Read addon GUID from manifest
+      # Skip Firefox publish cleanly if either the AMO API key isn't
+      # configured or the manifest doesn't declare a gecko.id. The GUID
+      # lives in browser_specific_settings.gecko.id (single source of
+      # truth — same value Firefox uses to identify the extension and
+      # what AMO uses to update the listing).
+      - name: Check Firefox credentials and addon GUID
         id: ff
+        env:
+          API_KEY: ${{ secrets.FIREFOX_API_KEY }}
+          API_SECRET: ${{ secrets.FIREFOX_API_SECRET }}
         run: |
+          if [ -z "$API_KEY" ] || [ -z "$API_SECRET" ]; then
+            echo "::warning::FIREFOX_API_KEY or FIREFOX_API_SECRET is not set — skipping Firefox publish."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           guid=$(jq -r '.browser_specific_settings.gecko.id // empty' "${{ inputs.name }}/src/manifest.json")
           if [ -z "$guid" ]; then
-            echo "No browser_specific_settings.gecko.id in manifest — skipping Firefox publish."
+            echo "::warning::No browser_specific_settings.gecko.id in manifest — skipping Firefox publish."
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
             echo "guid=$guid" >> "$GITHUB_OUTPUT"

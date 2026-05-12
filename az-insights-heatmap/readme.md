@@ -22,9 +22,3 @@ Browser Extension that colours Application Insights tiles in the Azure portal by
 
 - Reads the percentage inside each `.fxs-tile` and sets its background to a red→green gradient based on health.
 - **Disable Gradient** toggle in the popup switches to flat red (<99%) / flat green (≥99%) instead.
-
-## Install (unpacked)
-
-1. Open `chrome://extensions` (or `edge://extensions`).
-2. Enable Developer Mode.
-3. Click "Load unpacked" and point at the [`src/`](src) folder.

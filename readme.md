@@ -11,6 +11,24 @@ Monorepo for andrewiankidd's Chrome/Edge extensions. Each extension lives in its
 | [az-insights-heatmap](az-insights-heatmap) | Colours Application Insights tiles in the Azure portal by health percentage. | [![az-insights-heatmap](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-az-insights-heatmap.yml/badge.svg?branch=master)](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-az-insights-heatmap.yml) |
 | [tfs2015-helper](tfs2015-helper) | Quality-of-life tweaks for the legacy TFS 2015 / VSTS UI. | [![tfs2015-helper](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-tfs2015-helper.yml/badge.svg?branch=master)](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-tfs2015-helper.yml) |
 
+## Install (unpacked)
+
+To load any of these from source instead of via a store:
+
+### Chrome / Edge
+
+1. Open `chrome://extensions` (or `edge://extensions`).
+2. Enable Developer Mode.
+3. Click "Load unpacked" and point at the `<extension>/src/` folder.
+
+### Firefox
+
+1. Open `about:debugging#/runtime/this-firefox`.
+2. Click "Load Temporary Add-on…".
+3. Pick `<extension>/src/manifest.json`.
+
+Firefox temporary add-ons are wiped on browser restart; for a persistent install use the AMO link in each extension's readme.
+
 ## Layout
 
 ```

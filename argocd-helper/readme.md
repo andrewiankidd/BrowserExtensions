@@ -41,12 +41,6 @@ When a sync is already running, clicking **SYNCHRONIZE** silently no-ops with a 
 
 Both features are on by default. Open the extension popup to enable/disable either one. State is persisted via `chrome.storage.local` and changes take effect immediately for disable; re-enabling requires a tab reload for buttons to be injected back in.
 
-## Install (unpacked)
-
-1. Open `chrome://extensions` (or `edge://extensions`).
-2. Enable Developer Mode.
-3. Click "Load unpacked" and point at the [`src/`](src) folder.
-
 ## Notes
 
 - Content script filtered to URLs containing "argocd" via `include_globs`; both features additionally self-gate by DOM selectors so the script is inert on non-ArgoCD pages.
