@@ -10,7 +10,7 @@ Browser Extension for syncing select localStorage values between machines.
 
 ### Links!
 
-[![Chrome Link](https://img.shields.io/badge/%f0%9f%8c%90%20Chrome%20Extension-3277BC.svg)](https://chrome.google.com/webstore/detail/ajpgfnbllpolbcbepkmghabgpbccgfam)
+[![Chrome Link](https://img.shields.io/badge/%f0%9f%8c%90%20Chrome%20Extension-3277BC.svg)](https://chromewebstore.google.com/detail/simple-storage-sync/ajpgfnbllpolbcbepkmghabgpbccgfam)
 
 [![Edge Link](https://img.shields.io/badge/%f0%9f%8c%90%20Edge%20Extension-3277BC.svg)](https://microsoftedge.microsoft.com/addons/detail/oeojiafighihlcgbalfdohlciecpbocd)
 

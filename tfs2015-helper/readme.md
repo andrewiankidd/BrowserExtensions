@@ -10,7 +10,7 @@ Browser Extension with quality-of-life tweaks for the legacy TFS 2015 / VSTS UI.
 
 ### Links!
 
-[![Chrome Link](https://img.shields.io/badge/%f0%9f%8c%90%20Chrome%20Extension-3277BC.svg)](TODO)
+[![Chrome Link](https://img.shields.io/badge/%f0%9f%8c%90%20Chrome%20Extension-3277BC.svg)](https://chromewebstore.google.com/detail/tfs-2015-helper/mkbgpngajcejejikfofhbffpokfbeach)
 
 [![Edge Link](https://img.shields.io/badge/%f0%9f%8c%90%20Edge%20Extension-3277BC.svg)](https://github.com/microsoft/MicrosoftEdge-Extensions/issues/527)
 

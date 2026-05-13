@@ -10,7 +10,7 @@ Browser Extension that colours Application Insights tiles in the Azure portal by
 
 ### Links!
 
-[![Chrome Link](https://img.shields.io/badge/%f0%9f%8c%90%20Chrome%20Extension-3277BC.svg)](TODO)
+[![Chrome Link](https://img.shields.io/badge/%f0%9f%8c%90%20Chrome%20Extension-3277BC.svg)](https://chromewebstore.google.com/detail/az-insights-heatmap/ahcdbmamppjhnpjcdhhoanmnmifhfbgo)
 
 [![Edge Link](https://img.shields.io/badge/%f0%9f%8c%90%20Edge%20Extension-3277BC.svg)](https://github.com/microsoft/MicrosoftEdge-Extensions/issues/527)
 
