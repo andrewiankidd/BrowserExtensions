@@ -1,0 +1,134 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>JetKVM Helper</title>
+		<style>
+			* {
+				transition: all 0.5s;
+			}
+			html {
+				--primary-color: rgb(15,23,42);
+				--secondary-color: rgb(148,163,184);
+				--accent-color: rgb(56,189,248);
+			}
+			body {
+				margin: 0px;
+				width: 320px;
+				padding: 10px;
+				text-align: center;
+				background: var(--primary-color);
+				color: var(--secondary-color);
+				font-family: sans-serif;
+			}
+			h1 {
+				font-size: 18px;
+				margin: 6px 0px 10px;
+			}
+			h1:hover {
+				color: var(--accent-color);
+			}
+			ul {
+				padding: 0px;
+				margin: 0px;
+				text-align: left;
+			}
+			li {
+				list-style: none;
+				padding: 6px 10px;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+			li:hover {
+				color: var(--accent-color);
+				background: rgba(255,255,255,0.03);
+			}
+			label {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				cursor: pointer;
+			}
+			input[type="checkbox"] {
+				accent-color: var(--accent-color);
+				width: 16px;
+				height: 16px;
+			}
+			input[type="text"], input[type="password"] {
+				width: 100%;
+				box-sizing: border-box;
+				margin-top: 4px;
+				padding: 5px 7px;
+				border: 1px solid rgba(255,255,255,0.15);
+				border-radius: 4px;
+				background: rgba(255,255,255,0.04);
+				color: #e2e8f0;
+				font-family: monospace;
+				font-size: 11px;
+			}
+			fieldset {
+				border: 1px solid rgba(255,255,255,0.12);
+				border-radius: 4px;
+				margin: 8px 0px 0px;
+				padding: 8px 10px 10px;
+				text-align: left;
+			}
+			fieldset[disabled] {
+				opacity: 0.4;
+			}
+			legend {
+				font-size: 11px;
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+			}
+			.field {
+				font-size: 11px;
+				margin-top: 6px;
+			}
+			code {
+				font-family: monospace;
+				color: var(--accent-color);
+			}
+			.status {
+				font-size: 11px;
+				margin-top: 8px;
+				padding: 6px 8px;
+				border-radius: 4px;
+				background: rgba(255,255,255,0.04);
+				word-break: break-word;
+			}
+			.hint {
+				font-size: 11px;
+				opacity: 0.7;
+				margin-top: 12px;
+			}
+			a {
+				color: var(--accent-color);
+			}
+		</style>
+    </head>
+    <body>
+        <img id="logo" src="/icons/logo48.png" alt="JetKVM Helper Logo" />
+		<h1>JetKVM Helper</h1>
+
+		<div id="UIContainer">
+			<ul>
+				<li><label><input type="checkbox" id="enableScreenshot" /> Screenshot button</label></li>
+				<li><label><input type="checkbox" id="enableRecord" /> Record button</label></li>
+				<li><label><input type="checkbox" id="enableScripting" /> Scripted input</label></li>
+			</ul>
+
+			<fieldset id="scriptSettings" disabled>
+				<legend>Command URL</legend>
+				<div class="field">
+					<input type="text" id="commandUrl" spellcheck="false" readonly />
+				</div>
+				<div class="status">Open it with no parameters for the key reference, or add <code>?key=ArrowDown</code>, <code>?text=…</code>, <code>?screenshot=name</code>, <code>?record=start</code>.</div>
+			</fieldset>
+
+			<div class="hint">Reload the JetKVM tab after toggling.</div>
+			<div class="hint"><a id="sourceLink" target="_blank" rel="noreferrer">Source on GitHub</a></div>
+		</div>
+
+		<script src="main.js"></script>
+    </body>
+</html>

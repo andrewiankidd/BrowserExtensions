@@ -10,6 +10,7 @@ Monorepo for andrewiankidd's Chrome/Edge extensions. Each extension lives in its
 | [argocd-helper](argocd-helper) | Quality-of-life tweaks for the ArgoCD UI (delete-confirmation autofill, Cancel & Sync button). | [![argocd-helper](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-argocd-helper.yml/badge.svg?branch=master)](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-argocd-helper.yml) |
 | [az-insights-heatmap](az-insights-heatmap) | Colours Application Insights tiles in the Azure portal by health percentage. | [![az-insights-heatmap](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-az-insights-heatmap.yml/badge.svg?branch=master)](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-az-insights-heatmap.yml) |
 | [tfs2015-helper](tfs2015-helper) | Quality-of-life tweaks for the legacy TFS 2015 / VSTS UI. | [![tfs2015-helper](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-tfs2015-helper.yml/badge.svg?branch=master)](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-tfs2015-helper.yml) |
+| [jetkvm-helper](jetkvm-helper) | Screenshot and video capture buttons for the JetKVM UI, plus URL-triggered keystrokes for scripting. | [![jetkvm-helper](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-jetkvm-helper.yml/badge.svg?branch=master)](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-jetkvm-helper.yml) |
 
 ## Install (unpacked)
 
@@ -38,11 +39,13 @@ BrowserExtensions/
 │   ├── publish-simple-storage-sync.yml    # caller, path-filtered
 │   ├── publish-argocd-helper.yml          # ditto
 │   ├── publish-az-insights-heatmap.yml    # ditto
-│   └── publish-tfs2015-helper.yml         # ditto
+│   ├── publish-tfs2015-helper.yml         # ditto
+│   └── publish-jetkvm-helper.yml          # ditto
 ├── simple-storage-sync/    ├── assets/ ├── readme.md └── src/
 ├── argocd-helper/          ├── assets/ ├── readme.md └── src/
 ├── az-insights-heatmap/    ├── assets/ ├── readme.md └── src/
-└── tfs2015-helper/         ├── assets/ ├── readme.md └── src/
+├── tfs2015-helper/         ├── assets/ ├── readme.md └── src/
+└── jetkvm-helper/          ├── assets/ ├── readme.md └── src/
 ```
 
 The build/release/publish pipeline lives once in [`_publish-extension.yml`](.github/workflows/_publish-extension.yml). Each extension has a small caller that path-filters its own subfolder and passes `name` plus its secrets through to the reusable workflow.
@@ -58,7 +61,7 @@ Three secrets are shared across all extensions (set once per account):
 
 One secret per extension (the store-issued product/extension ID):
 
-- `CHROME_PRODUCT_ID_<NAME>` (e.g. `CHROME_PRODUCT_ID_SIMPLE_STORAGE_SYNC`, `CHROME_PRODUCT_ID_ARGOCD_HELPER`, `CHROME_PRODUCT_ID_AZ_INSIGHTS_HEATMAP`, `CHROME_PRODUCT_ID_TFS2015_HELPER`).
+- `CHROME_PRODUCT_ID_<NAME>` (e.g. `CHROME_PRODUCT_ID_SIMPLE_STORAGE_SYNC`, `CHROME_PRODUCT_ID_ARGOCD_HELPER`, `CHROME_PRODUCT_ID_AZ_INSIGHTS_HEATMAP`, `CHROME_PRODUCT_ID_TFS2015_HELPER`, `CHROME_PRODUCT_ID_JETKVM_HELPER`).
 
 (If/when Edge publish is re-enabled, add `EDGE_PRODUCT_ID_<NAME>` per extension as well.)
 

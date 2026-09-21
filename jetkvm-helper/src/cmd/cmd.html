@@ -1,0 +1,131 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>JetKVM Helper</title>
+		<style>
+			html {
+				--primary-color: rgb(15,23,42);
+				--secondary-color: rgb(148,163,184);
+				--accent-color: rgb(56,189,248);
+			}
+			body {
+				margin: 0px;
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: var(--primary-color);
+				color: var(--secondary-color);
+				font-family: sans-serif;
+			}
+			/* Stays blank while a command runs, so the tab closes without a flash */
+			main {
+				display: none;
+				max-width: 720px;
+				padding: 28px;
+			}
+			#status {
+				padding: 12px 16px;
+				border-left: 3px solid var(--accent-color);
+				border-radius: 4px;
+				background: rgba(255,255,255,0.04);
+				font-size: 13px;
+				line-height: 1.5;
+			}
+			#status.error {
+				border-left-color: rgb(248,113,113);
+				color: rgb(248,250,252);
+			}
+			#help {
+				display: none;
+				margin-top: 22px;
+			}
+			h2 {
+				font-size: 12px;
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				color: var(--secondary-color);
+				margin: 22px 0px 8px;
+			}
+			table {
+				border-collapse: collapse;
+				width: 100%;
+				font-size: 12px;
+			}
+			td {
+				padding: 5px 10px 5px 0px;
+				vertical-align: top;
+				border-bottom: 1px solid rgba(255,255,255,0.06);
+			}
+			td:first-child {
+				white-space: nowrap;
+				color: rgba(226,232,240,0.75);
+				width: 120px;
+			}
+			code {
+				font-family: monospace;
+				color: var(--accent-color);
+			}
+			pre {
+				margin: 0px;
+				padding: 12px 14px;
+				border-radius: 4px;
+				background: rgba(255,255,255,0.04);
+				font-size: 12px;
+				line-height: 1.7;
+				color: var(--accent-color);
+				overflow-x: auto;
+			}
+			.footnote {
+				margin-top: 18px;
+				font-size: 12px;
+				line-height: 1.6;
+				opacity: 0.75;
+			}
+		</style>
+    </head>
+    <body>
+		<main>
+			<div id="status"></div>
+
+			<div id="help">
+				<h2>Parameters</h2>
+				<table>
+					<tr><td><code>key</code></td><td>One key. Optional <code>modifiers</code> (comma separated) and <code>hold</code> in ms.</td></tr>
+					<tr><td><code>text</code></td><td>Type it out. Optional <code>delay</code> in ms between characters.</td></tr>
+					<tr><td><code>steps</code></td><td>JSON array of <code>{text}</code> or <code>{codes}</code> entries, each with an optional <code>delay</code>.</td></tr>
+					<tr><td><code>screenshot</code></td><td>Save the current frame as <code>&lt;name&gt;.png</code>.</td></tr>
+					<tr><td><code>record</code></td><td><code>start</code> or <code>stop</code>. Optional <code>name</code>.</td></tr>
+					<tr><td><code>target</code></td><td>Which device, matched on name or URL. Only needed with more than one JetKVM tab open.</td></tr>
+					<tr><td><code>keep</code></td><td>Leave this tab open instead of closing it.</td></tr>
+				</table>
+
+				<h2>Key names</h2>
+				<table>
+					<tr><td>Arrows</td><td><code>ArrowUp</code> <code>ArrowDown</code> <code>ArrowLeft</code> <code>ArrowRight</code></td></tr>
+					<tr><td>Editing</td><td><code>Enter</code> <code>Escape</code> <code>Tab</code> <code>Space</code> <code>Backspace</code> <code>Delete</code> <code>Insert</code></td></tr>
+					<tr><td>Paging</td><td><code>Home</code> <code>End</code> <code>PageUp</code> <code>PageDown</code></td></tr>
+					<tr><td>Function</td><td><code>F1</code> … <code>F12</code></td></tr>
+					<tr><td>Letters</td><td><code>KeyA</code> … <code>KeyZ</code></td></tr>
+					<tr><td>Digits</td><td><code>Digit0</code> … <code>Digit9</code></td></tr>
+					<tr><td>Modifiers</td><td><code>ControlLeft</code> <code>ShiftLeft</code> <code>AltLeft</code> <code>MetaLeft</code> (and the <code>…Right</code> variants)</td></tr>
+				</table>
+
+				<h2>Examples</h2>
+				<pre>?key=ArrowDown
+?key=Delete&amp;modifiers=ControlLeft,AltLeft
+?key=F2&amp;target=rack-01
+?text=root%0A
+?steps=[{"codes":["ArrowDown"],"delay":300},{"codes":["Enter"]}]
+?screenshot=bios
+?record=start&amp;name=boot    then    ?record=stop</pre>
+
+				<p class="footnote">
+					These are <a href="https://developer.mozilla.org/docs/Web/API/UI_Events/Keyboard_key_values" target="_blank">KeyboardEvent.code</a> names, so they describe the physical key rather than the character it produces.
+					A name JetKVM doesn't recognise does nothing at all — it logs <code>Key down not mapped</code> in the JetKVM tab's console, which is the place to look if a key seems to be ignored.
+				</p>
+			</div>
+		</main>
+		<script src="cmd.js"></script>
+    </body>
+</html>
