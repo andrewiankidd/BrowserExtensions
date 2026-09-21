@@ -12,28 +12,20 @@ Monorepo for andrewiankidd's Chrome/Edge extensions. Each extension lives in its
 | [tfs2015-helper](tfs2015-helper) | Quality-of-life tweaks for the legacy TFS 2015 / VSTS UI. | [![tfs2015-helper](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-tfs2015-helper.yml/badge.svg?branch=master)](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-tfs2015-helper.yml) |
 | [jetkvm-helper](jetkvm-helper) | Screenshot and video capture buttons for the JetKVM UI, plus URL-triggered keystrokes for scripting. | [![jetkvm-helper](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-jetkvm-helper.yml/badge.svg?branch=master)](https://github.com/andrewiankidd/BrowserExtensions/actions/workflows/publish-jetkvm-helper.yml) |
 
-## Install (unpacked)
+## Install
 
-To load any of these from source instead of via a store:
+Store links are at the top of each extension's readme.
 
-### Chrome / Edge
-
-1. Open `chrome://extensions` (or `edge://extensions`).
-2. Enable Developer Mode.
-3. Click "Load unpacked" and point at the `<extension>/src/` folder.
-
-### Firefox
-
-1. Open `about:debugging#/runtime/this-firefox`.
-2. Click "Load Temporary Add-on…".
-3. Pick `<extension>/src/manifest.json`.
-
-Firefox temporary add-ons are wiped on browser restart; for a persistent install use the AMO link in each extension's readme.
+Where a store isn't an option — a listing pending review, rejected or removed, or Edge
+publishing being broken at Microsoft's end — any of these can be loaded straight from
+source instead. [**install.md**](install.md) covers that: downloading the repo without
+git, then the steps for Chrome, Edge and Firefox.
 
 ## Layout
 
 ```
 BrowserExtensions/
+├── install.md                             # loading any of these unpacked
 ├── .github/workflows/
 │   ├── _publish-extension.yml             # reusable workflow_call pipeline
 │   ├── publish-simple-storage-sync.yml    # caller, path-filtered

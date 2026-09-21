@@ -12,6 +12,8 @@ Screenshot and video capture buttons for the [JetKVM](https://jetkvm.com) UI, pl
 
 [![Chrome Link](https://img.shields.io/badge/%f0%9f%8c%90%20Chrome%20Extension-3277BC.svg)](https://chromewebstore.google.com/detail/jetkvm-helper/oeekainmmcnajdjapcangfgacefdpeeh)
 
+[![Install Unpacked](https://img.shields.io/badge/%f0%9f%93%a6%20Install%20Unpacked-555555.svg)](../install.md)
+
 </center>
 
 ## Features
@@ -36,7 +38,7 @@ Off by default. Turn it on in the popup and you can send keystrokes by opening a
 
 ## Installing
 
-Load `src/` as an unpacked extension, or install from the store once it's listed. Then open your JetKVM at whatever address it lives on — `http://192.168.1.60/` works the same as `jetkvm.local`.
+Install from the store with the link above, or [load it unpacked](../install.md) if you'd rather run it from source. Then open your JetKVM at whatever address it lives on — `http://192.168.1.60/` works the same as `jetkvm.local`.
 
 ## Scripting
 

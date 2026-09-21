@@ -16,6 +16,8 @@ Browser Extension with quality-of-life tweaks for the legacy TFS 2015 / VSTS UI.
 
 [![Firefox Link](https://img.shields.io/badge/%f0%9f%8c%90%20Firefox%20Extension-3277BC.svg)](https://addons.mozilla.org/firefox/addon/tfs-2015-helper/)
 
+[![Install Unpacked](https://img.shields.io/badge/%f0%9f%93%a6%20Install%20Unpacked-555555.svg)](../install.md)
+
 </center>
 
 ## Features
